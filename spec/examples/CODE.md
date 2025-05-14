@@ -61,6 +61,8 @@ Access parts of memory using ports.
 
 Multibit manipulation using circuits.
 
+[Not implemented in V1]
+
 ### Create a circuit
 
 ```ns
