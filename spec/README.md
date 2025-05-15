@@ -20,7 +20,7 @@ To call a macro, simply use its name and the arguments. For example, the AND gat
 
 (Note that arguments must be enclosed within parentheses, so !& does not mean "apply ! on &", but rather it is an instruction on its own.)
 
-## Functions
+## Functions*
 
 To define a function, the syntax is the same as a macro, but with an asterisk used:
 
@@ -29,6 +29,8 @@ To define a function, the syntax is the same as a macro, but with an asterisk us
 The main difference between a macro and a function is that a macro replaces its usage with the definition, while a function runs through the body, and replaces its usage with the return value. For this reason, we recommend you use macros over functions.
 
 Note that until you implement registers, all inputs are assumed to be singular bits.
+
+*NOTE: Functions have been deemed to be obsolete and may be removed entirely soon. This does not guarantee anything.
 
 ## Comments
 
