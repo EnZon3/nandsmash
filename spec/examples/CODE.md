@@ -59,28 +59,37 @@ Access parts of memory using ports.
 
 ## Circuits
 
-Multibit manipulation using circuits.
+Multibit manipulation using circuits. Uses same syntax as macros, but with a body of code.
 
 [Not implemented in V1]
 
 ### Create a circuit
 
 ```ns
-$circuitname(inputs) {
+#circuitname(inputs) {
   // circuit ops...
-} = (outputs);
+} = output;
 
-circuitname(inputs); // returns outputs
+circuitname(inputs); // returns output
 ```
 
 ### Operations
 
 ```ns
-$circuitname(D, E) {
-  *nand1() = !&(D, E)
-  *nand2() = !&(!(D), E))
-  *set() = !&(nand1(), reset())
-  *reset() = !&(nand2(), set())
-} = (set, reset);
-circuitname(inputs); // returns outputs
+#!(a) = !&(a, a); // NOT gate
+#&(a, b) = !(!&(a, b)); // AND gate
+#|(a, b) = !&(!(a), !(b)); // OR gate
+
+#mux(a, b, select) {
+  #selectA() = &(a, !(select));
+  #selectB() = &(b, select);
+} = |(selectA(), selectB());
+
+mux(1, 0, 0); // returns 1
+mux(0, 1, 0); // returns 0
+mux(1, 0, 1); // returns 1
 ```
+
+### Multiple Outputs
+
+(not included yet, as syntax not fully designed)
