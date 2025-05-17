@@ -87,7 +87,7 @@ circuitname(inputs); // returns output
 
 mux(1, 0, 0); // returns 1
 mux(0, 1, 0); // returns 0
-mux(1, 0, 1); // returns 1
+mux(1, 0, 1); // returns 0
 ```
 
 ### Multiple Outputs
